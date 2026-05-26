@@ -156,7 +156,7 @@ public class Main extends Application {
     private void displayGraph() {
         StringBuilder builder = new StringBuilder();
 
-        builder.append("=== Social Network Graph ===\n\n");
+        builder.append("=== Social Network Graaph ===\n\n");
 
         for (Map.Entry<String, HashSet<String>> entry : graph.entrySet()) {
             builder.append(entry.getKey())
