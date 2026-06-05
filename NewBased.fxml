@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox prefHeight="640.0" prefWidth="980.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.NewBasedController">
+    <children>
+        <VBox prefWidth="360.0" spacing="22.0" style="-fx-background-color: #0B45FF;" HBox.hgrow="NEVER">
+            <padding>
+                <Insets bottom="36.0" left="48.0" right="48.0" top="54.0" />
+            </padding>
+            <children>
+                <VBox spacing="6.0">
+                    <children>
+                        <Label text="Social Network Graph" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                        </Label>
+                        <Label text="User Management" textFill="#E6EDFF">
+                            <font>
+                                <Font size="13.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </VBox>
+
+                <VBox spacing="16.0">
+                    <children>
+                        <TextField fx:id="fullNameField" prefHeight="40.0" promptText="Full Name" style="-fx-background-color: white; -fx-background-radius: 6; -fx-border-radius: 6; -fx-prompt-text-fill: #A7AAB0; -fx-text-fill: #222222; -fx-padding: 0 12 0 12;" />
+                        <TextField fx:id="usernameField" prefHeight="40.0" promptText="Username" style="-fx-background-color: white; -fx-background-radius: 6; -fx-border-radius: 6; -fx-prompt-text-fill: #A7AAB0; -fx-text-fill: #222222; -fx-padding: 0 12 0 12;" />
+                        <TextField fx:id="majorField" prefHeight="40.0" promptText="Major" style="-fx-background-color: white; -fx-background-radius: 6; -fx-border-radius: 6; -fx-prompt-text-fill: #A7AAB0; -fx-text-fill: #222222; -fx-padding: 0 12 0 12;" />
+                        <TextField fx:id="interestField" prefHeight="40.0" promptText="Interest" style="-fx-background-color: white; -fx-background-radius: 6; -fx-border-radius: 6; -fx-prompt-text-fill: #A7AAB0; -fx-text-fill: #222222; -fx-padding: 0 12 0 12;" />
+                    </children>
+                </VBox>
+
+                <VBox spacing="10.0">
+                    <children>
+                        <Button fx:id="saveUserButton" maxWidth="Infinity" onAction="#handleSaveUser" prefHeight="42.0" style="-fx-background-color: rgba(255,255,255,0.06); -fx-background-radius: 4; -fx-border-color: white; -fx-border-radius: 4; -fx-border-width: 1.2; -fx-font-weight: bold;" text="Save User" textFill="WHITE" />
+                        <HBox spacing="10.0">
+                            <children>
+                                <Button fx:id="clearUserFormButton" maxWidth="Infinity" onAction="#handleClearUserForm" prefHeight="36.0" prefWidth="126.0" style="-fx-background-color: rgba(255,255,255,0.04); -fx-background-radius: 4; -fx-border-color: #DDE6FF; -fx-border-radius: 4; -fx-border-width: 1.0; -fx-font-weight: bold;" text="Clear" textFill="WHITE" />
+                                <Button fx:id="deleteUserButton" maxWidth="Infinity" onAction="#handleDeleteUser" prefHeight="36.0" prefWidth="126.0" style="-fx-background-color: rgba(255,255,255,0.04); -fx-background-radius: 4; -fx-border-color: #DDE6FF; -fx-border-radius: 4; -fx-border-width: 1.0; -fx-font-weight: bold;" text="Delete User" textFill="WHITE" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+
+        <VBox spacing="12.0" style="-fx-background-color: #FFFFFF;" HBox.hgrow="ALWAYS">
+            <padding>
+                <Insets bottom="24.0" left="28.0" right="28.0" top="30.0" />
+            </padding>
+            <children>
+                <Label text="Social Network Dashboard" textFill="#2F3338">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Label>
+
+                <TabPane fx:id="mainTabPane" style="-fx-background-color: white; -fx-border-color: #E3E6EA; -fx-border-radius: 3;" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+                    <tabs>
+                        <Tab text="All Users">
+                            <content>
+                                <VBox spacing="12.0" style="-fx-background-color: white;">
+                                    <padding>
+                                        <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                                    </padding>
+                                    <children>
+                                        <Label text="Friendship Relation" textFill="#2F3338">
+                                            <font>
+                                                <Font name="System Bold" size="16.0" />
+                                            </font>
+                                        </Label>
+                                        <VBox spacing="8.0">
+                                            <children>
+                                                <HBox spacing="8.0">
+                                                    <children>
+                                                        <TextField fx:id="relationUserOneField" maxWidth="Infinity" prefHeight="36.0" prefWidth="220.0" promptText="First Username" style="-fx-background-color: #F7F9FC; -fx-background-radius: 6; -fx-border-color: #DDE3EA; -fx-border-radius: 6; -fx-prompt-text-fill: #9AA0A6; -fx-padding: 0 12 0 12;" HBox.hgrow="ALWAYS" />
+                                                        <TextField fx:id="relationUserTwoField" maxWidth="Infinity" prefHeight="36.0" prefWidth="220.0" promptText="Second Username" style="-fx-background-color: #F7F9FC; -fx-background-radius: 6; -fx-border-color: #DDE3EA; -fx-border-radius: 6; -fx-prompt-text-fill: #9AA0A6; -fx-padding: 0 12 0 12;" HBox.hgrow="ALWAYS" />
+                                                    </children>
+                                                </HBox>
+                                                <HBox spacing="8.0">
+                                                    <children>
+                                                        <Button fx:id="addRelationButton" onAction="#handleAddRelation" prefHeight="36.0" prefWidth="150.0" style="-fx-background-color: #0B45FF; -fx-background-radius: 5; -fx-font-weight: bold;" text="Add Relation" textFill="WHITE" />
+                                                        <Button fx:id="deleteRelationButton" onAction="#handleDeleteRelation" prefHeight="36.0" prefWidth="150.0" style="-fx-background-color: #2F3338; -fx-background-radius: 5; -fx-font-weight: bold;" text="Delete Relation" textFill="WHITE" />
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+                                        <Label fx:id="relationStatusLabel" text="Select a row to edit a user, or type two usernames to add/delete a relation." textFill="#607080">
+                                            <font>
+                                                <Font size="12.0" />
+                                            </font>
+                                        </Label>
+                                        <TableView fx:id="userTable" style="-fx-background-color: white; -fx-border-color: #ECEFF3;" VBox.vgrow="ALWAYS">
+                                            <columns>
+                                                <TableColumn fx:id="idColumn" prefWidth="70.0" text="ID" />
+                                                <TableColumn fx:id="fullNameColumn" prefWidth="170.0" text="Full Name" />
+                                                <TableColumn fx:id="usernameColumn" prefWidth="140.0" text="Username" />
+                                                <TableColumn fx:id="majorColumn" prefWidth="160.0" text="Major" />
+                                                <TableColumn fx:id="interestColumn" prefWidth="150.0" text="Interest" />
+                                            </columns>
+                                        </TableView>
+                                    </children>
+                                </VBox>
+                            </content>
+                        </Tab>
+                        <Tab text="Adjacency List">
+                            <content>
+                                <VBox spacing="12.0" style="-fx-background-color: white;">
+                                    <padding>
+                                        <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+                                    </padding>
+                                    <children>
+                                        <Button fx:id="displayAdjacencyButton" onAction="#handleDisplayAdjacencyList" prefHeight="25.0" prefWidth="190.0" style="-fx-background-color: #0B45FF; -fx-background-radius: 5; -fx-font-weight: bold;" text="Display Adjacency List" textFill="WHITE" />
+                                        <TextArea fx:id="adjacencyTextArea" editable="false" prefRowCount="18" promptText="Adjacency list results will appear here" style="-fx-background-color: #F7F9FC; -fx-border-color: #E3E6EA; -fx-border-radius: 4; -fx-font-family: 'Consolas';" VBox.vgrow="ALWAYS" />
+                                    </children>
+                                </VBox>
+                            </content>
+                        </Tab>
+
+                        <Tab text="Analysis">
+                            <content>
+                                <VBox spacing="14.0" style="-fx-background-color: white;">
+                                    <padding>
+                                        <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+                                    </padding>
+                                    <children>
+                                        <Label text="Mutual Friends and Paths" textFill="#2F3338">
+                                            <font>
+                                                <Font name="System Bold" size="16.0" />
+                                            </font>
+                                        </Label>
+                                        <VBox spacing="8.0">
+                                            <children>
+                                                <HBox spacing="8.0">
+                                                    <children>
+                                                        <TextField fx:id="analysisUserOneField" maxWidth="Infinity" prefHeight="36.0" prefWidth="220.0" promptText="Username 1" style="-fx-background-color: #F7F9FC; -fx-background-radius: 6; -fx-border-color: #DDE3EA; -fx-border-radius: 6; -fx-prompt-text-fill: #9AA0A6; -fx-padding: 0 12 0 12;" HBox.hgrow="ALWAYS" />
+                                                        <TextField fx:id="analysisUserTwoField" maxWidth="Infinity" prefHeight="36.0" prefWidth="220.0" promptText="Username 2" style="-fx-background-color: #F7F9FC; -fx-background-radius: 6; -fx-border-color: #DDE3EA; -fx-border-radius: 6; -fx-prompt-text-fill: #9AA0A6; -fx-padding: 0 12 0 12;" HBox.hgrow="ALWAYS" />
+                                                    </children>
+                                                </HBox>
+                                                <HBox spacing="8.0">
+                                                    <children>
+                                                        <Button fx:id="findMutualFriendsButton" onAction="#handleFindMutualFriends" prefHeight="36.0" prefWidth="170.0" style="-fx-background-color: #0B45FF; -fx-background-radius: 5; -fx-font-weight: bold;" text="Find Mutual Friends" textFill="WHITE" />
+                                                        <Button fx:id="generatePathsButton" onAction="#handleGeneratePaths" prefHeight="36.0" prefWidth="170.0" style="-fx-background-color: #2F3338; -fx-background-radius: 5; -fx-font-weight: bold;" text="Generate Paths" textFill="WHITE" />
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+                                        <Label text="Friend Recommendations" textFill="#2F3338">
+                                            <font>
+                                                <Font name="System Bold" size="16.0" />
+                                            </font>
+                                        </Label>
+                                        <HBox spacing="8.0">
+                                            <children>
+                                                <TextField fx:id="recommendationUserField" prefHeight="25.0" prefWidth="220.0" promptText="Username" style="-fx-background-color: #F7F9FC; -fx-background-radius: 6; -fx-border-color: #DDE3EA; -fx-border-radius: 6; -fx-prompt-text-fill: #9AA0A6; -fx-padding: 0 12 0 12;" />
+                                                <Button fx:id="friendRecommendationsButton" onAction="#handleFriendRecommendations" prefHeight="24.0" prefWidth="190.0" style="-fx-background-color: #0B45FF; -fx-background-radius: 5; -fx-font-weight: bold;" text="Friend Recommendations" textFill="WHITE" />
+                                            </children>
+                                        </HBox>
+                                        <TextArea fx:id="analysisOutputArea" editable="false" prefRowCount="16" promptText="Analysis output will appear here" style="-fx-background-color: #F7F9FC; -fx-border-color: #E3E6EA; -fx-border-radius: 4; -fx-font-family: 'Consolas';" VBox.vgrow="ALWAYS" />
+                                    </children>
+                                </VBox>
+                            </content>
+                        </Tab>
+
+                        <Tab text="Graph">
+                            <content>
+                                <VBox spacing="12.0" style="-fx-background-color: white;">
+                                    <padding>
+                                        <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+                                    </padding>
+                                    <children>
+                              <HBox spacing="8.0" />
+                              <Label text="Relationship Graph">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                                          <Pane fx:id="graphPane" maxHeight="Infinity" maxWidth="Infinity" prefHeight="430.0" prefWidth="610.0" style="-fx-background-color: #F5F7FA; -fx-border-color: #E3E6EA; -fx-border-radius: 6; -fx-background-radius: 6;" VBox.vgrow="ALWAYS">
+                                 <children>
+                                                <Label layoutX="173.0" layoutY="224.0" text="Graph visualization will appear here" textFill="#8B95A1">
+                                                    <font>
+                                                        <Font size="16.0" />
+                                                    </font>
+                                                </Label>
+                                 </children>
+                              </Pane>
+                                    </children>
+                                </VBox>
+                            </content>
+                        </Tab>
+                    </tabs>
+                </TabPane>
+            </children>
+        </VBox>
+    </children>
+</HBox>
