@@ -42,6 +42,7 @@ An adjacency list is suitable for a social network because each user usually con
 - `SocialGraphDatabase.java` creates the SQLite tables and saves/loads users and friendships.
 - `NewBasedController.java` connects the JavaFX screen to the graph and database.
 - `Main.java` starts the JavaFX app through `SocialGraphApp`.
+- `lib/charts-master` contains the vendored JavaFX chart library used by the graph visualization. Maven compiles it automatically.
 
 ## JavaFX UI
 
