@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="620.0" prefWidth="760.0" spacing="12.0"
+      xmlns="http://javafx.com/javafx/25"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.project.SocialGraphController">
+    <padding>
+        <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+    </padding>
+
+    <children>
+        <Label style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Social Network Graph" />
+
+        <VBox spacing="6.0">
+            <children>
+                <Label style="-fx-font-weight: bold;" text="Add User" />
+                <GridPane hgap="8.0" vgap="8.0">
+                    <children>
+                        <TextField fx:id="nameField" promptText="Name" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <TextField fx:id="usernameField" promptText="Username" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        <TextField fx:id="majorField" promptText="Major" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                        <TextField fx:id="interestField" promptText="Interest" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                        <Button onAction="#handleAddUser" text="Add User" GridPane.columnIndex="4" GridPane.rowIndex="0" />
+                    </children>
+                </GridPane>
+            </children>
+        </VBox>
+
+        <VBox spacing="6.0">
+            <children>
+                <Label style="-fx-font-weight: bold;" text="Add Friendship" />
+                <HBox spacing="8.0">
+                    <children>
+                        <TextField fx:id="friendshipUser1Field" promptText="Username 1" />
+                        <TextField fx:id="friendshipUser2Field" promptText="Username 2" />
+                        <Button onAction="#handleAddFriendship" text="Add Friendship" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+
+        <VBox spacing="8.0">
+            <children>
+                <Label style="-fx-font-weight: bold;" text="Graph Features" />
+                <HBox spacing="8.0">
+                    <children>
+                        <Button onAction="#handleDisplayAllUsers" text="Display All Users" />
+                        <Button onAction="#handleDisplayAdjacencyList" text="Display Adjacency List" />
+                    </children>
+                </HBox>
+                <HBox spacing="8.0">
+                    <children>
+                        <TextField fx:id="queryUser1Field" promptText="Username 1" />
+                        <TextField fx:id="queryUser2Field" promptText="Username 2" />
+                        <Button onAction="#handleFindMutualFriends" text="Find Mutual Friends" />
+                        <Button onAction="#handleConnectionPath" text="Connection Path" />
+                    </children>
+                </HBox>
+                <HBox spacing="8.0">
+                    <children>
+                        <TextField fx:id="recommendationUserField" promptText="Username" />
+                        <Button onAction="#handleFriendRecommendations" text="Friend Recommendations" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+
+        <TextArea fx:id="outputArea" editable="false" prefRowCount="18" VBox.vgrow="ALWAYS" />
+    </children>
+</VBox>
